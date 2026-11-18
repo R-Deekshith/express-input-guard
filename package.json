@@ -1,0 +1,56 @@
+{
+  "name": "express-input-guard",
+  "version": "0.1.0",
+  "description": "Lightweight, schema-based request validation and sanitization middleware for Express.js.",
+  "keywords": [
+    "express",
+    "expressjs",
+    "middleware",
+    "validation",
+    "request-validation",
+    "input-validation",
+    "sanitization",
+    "schema-validation",
+    "typescript"
+  ],
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "./src/index.cjs",
+  "module": "./src/index.mjs",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "require": "./src/index.cjs",
+      "import": "./src/index.mjs"
+    }
+  },
+  "files": [
+    "src/",
+    "types/",
+    "examples/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "peerDependencies": {
+    "express": ">=4.18.0 <6.0.0"
+  },
+  "scripts": {
+    "test": "node --test",
+    "test:unit": "node --test test/validate.test.cjs",
+    "test:integration": "node --test test/express.integration.test.cjs",
+    "test:watch": "node --test --watch",
+    "check": "node --check src/index.cjs && node --check src/index.mjs && node --check examples/basic-express-app.js && node --check test/validate.test.cjs && node --check test/express.integration.test.cjs",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run check && npm test",
+    "demo": "node examples/basic-express-app.js"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}
